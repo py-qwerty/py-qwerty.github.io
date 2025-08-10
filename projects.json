@@ -31,7 +31,16 @@
     "kpis": ["-40% support tickets", "+70% content speed"],
     "images": ["/assets/rag.png"],
     "links": {
-      "demo": "https://your-demo-or-landing"
+      "demo": "https://oposicionespolicianacional.com/opntest"
     }
+  },
+  {
+    "type": "b2b",
+    "title": "Custom Management System (B2B)",
+    "summary": "Internal CMS/LSM for content, users, roles, and analytics across partner academies.",
+    "tech": ["Flutter (web)", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs"],
+    "kpis": ["Multi‑tenant", "Role‑based access control", "Operational dashboards"],
+    "images": ["/assets/b2b-cms-1.png", "/assets/b2b-cms-2.png"],
+    "links": {}
   }
 ]
