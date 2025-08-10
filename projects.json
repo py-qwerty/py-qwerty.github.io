@@ -5,11 +5,6 @@
     "category": "mobile",
     "tech": ["Flutter", "PostgreSQL", "Cloud Run", "Firebase", "REST APIs", "Push Notifications"],
     "kpis": ["13,496 students", "+65% productivity", "-70% content time", "4.8★ rating"],
-    "images": [
-      "/assets/opn-1.png",
-      "/assets/opn-2.png", 
-      "/assets/opn-3.png"
-    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
       "ios": "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
@@ -21,10 +16,6 @@
     "category": "mobile",
     "tech": ["Flutter", "Edge Functions", "Supabase", "Real-time sync"],
     "kpis": ["+10K sessions/mo", "Real-time tracking", "Offline mode"],
-    "images": [
-      "/assets/opn-fisicas-1.png",
-      "/assets/opn-fisicas-2.png"
-    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
       "ios": "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"
@@ -49,10 +40,7 @@
     "category": "data",
     "tech": ["Flutter Web", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs", "RBAC"],
     "kpis": ["Multi-tenant architecture", "Role-based access", "Real-time dashboards", "100+ academies"],
-    "images": [
-      "/assets/b2b-cms-1.png",
-      "/assets/b2b-cms-2.png"
-    ],
+
     "links": {}
   }
 ]
