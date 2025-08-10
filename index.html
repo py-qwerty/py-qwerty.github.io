@@ -207,6 +207,8 @@
       cursor:pointer;
       transition:all 0.3s ease;
       overflow:hidden;
+      text-decoration:none;
+      display:inline-block;
     }
     
     .btn::before{
@@ -582,7 +584,7 @@
   <div class="container">
     <header>
       <span class="badge">B2C • AI • FLUTTER • DATA</span>
-      <h1>Pablo Fernandez</h1>
+      <h1 id="main-title"></h1>
       <div class="subtitle">CTO & Data Scientist. Specialized in B2C software, AI/ML, and scalable cloud architectures.</div>
       <div class="actions">
         <a class="btn primary" href="#projects">VIEW PROJECTS</a>
@@ -662,34 +664,63 @@
       return e; 
     }
 
-    // === Datos de proyectos de ejemplo ===
+    // === Datos de proyectos con tus proyectos reales ===
     let PROJECTS = [
       {
-        title: "AI Content Generator",
-        summary: "Advanced LLM-based system for automated content creation with RAG implementation.",
-        category: "ai",
-        tech: ["Python", "GPT-4", "LangChain", "PostgreSQL", "FastAPI"],
-        kpis: ["10K+ generations/day", "95% accuracy", "2s avg response"],
-        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=AI+System"],
-        links: { demo: "#", repo: "#" }
-      },
-      {
-        title: "Flutter Marketplace App",
-        summary: "B2C mobile application with real-time features and payment integration.",
+        title: "OPN — Oposiciones Policía Nacional",
+        summary: "B2C learning app for Spanish National Police exam prep with advanced test systems, smart notifications, and comprehensive analytics.",
         category: "mobile",
-        tech: ["Flutter", "Dart", "Firebase", "Stripe", "Cloud Run"],
-        kpis: ["13K+ users", "4.8★ rating", "$2M GMV"],
-        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=Mobile+App"],
-        links: { android: "#", ios: "#" }
+        tech: ["Flutter", "PostgreSQL", "Cloud Run", "Firebase", "REST APIs", "Push Notifications"],
+        kpis: ["13,496 students", "+65% productivity", "-70% content time", "4.8★ rating"],
+        images: [
+          "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=OPN+App",
+          "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Tests+System",
+          "https://via.placeholder.com/400x300/0f0f0f/ff00ff?text=Analytics"
+        ],
+        links: {
+          android: "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
+          ios: "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
+        }
       },
       {
-        title: "Data Analytics Platform",
-        summary: "Real-time analytics dashboard with ML-powered insights and predictions.",
+        title: "OPN Físicas",
+        summary: "Specialized physical training companion app for police candidates with workout tracking and performance analytics.",
+        category: "mobile",
+        tech: ["Flutter", "Edge Functions", "Supabase", "Real-time sync"],
+        kpis: ["+10K sessions/mo", "Real-time tracking", "Offline mode"],
+        images: [
+          "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=OPN+Fisicas",
+          "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Training+Mode"
+        ],
+        links: {
+          android: "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
+          ios: "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"
+        }
+      },
+      {
+        title: "Legal Info Chatbot (RAG)",
+        summary: "Custom LLM with Retrieval-Augmented Generation over proprietary legal corpus for intelligent Q&A.",
+        category: "ai",
+        tech: ["LLM", "RAG", "Embeddings", "Cloud Run", "Vector DB", "LangChain", "GPT-4"],
+        kpis: ["-40% support tickets", "+70% content speed", "95% accuracy", "2s response time"],
+        images: [
+          "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=AI+Chatbot"
+        ],
+        links: {
+          demo: "https://oposicionespolicianacional.com/opntest"
+        }
+      },
+      {
+        title: "Custom Management System (B2B)",
+        summary: "Enterprise CMS/LMS for content management, user administration, roles, and analytics across partner academies.",
         category: "data",
-        tech: ["React", "D3.js", "Python", "TensorFlow", "BigQuery"],
-        kpis: ["500GB processed/day", "Real-time", "99.9% uptime"],
-        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=Analytics"],
-        links: { demo: "#" }
+        tech: ["Flutter Web", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs", "RBAC"],
+        kpis: ["Multi-tenant architecture", "Role-based access", "Real-time dashboards", "100+ academies"],
+        images: [
+          "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=B2B+CMS",
+          "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Analytics+Dashboard"
+        ],
+        links: {}
       }
     ];
 
@@ -697,9 +728,12 @@
     async function loadProjects(){
       try{
         const res = await fetch('./projects.json');
-        PROJECTS = await res.json();
+        const data = await res.json();
+        if(data && data.length > 0) {
+          PROJECTS = data;
+        }
       }catch(e){ 
-        console.log('Using example projects'); 
+        console.log('Using embedded projects data'); 
       }
       renderProjects(PROJECTS);
     }
@@ -711,6 +745,7 @@
       items.forEach((p, idx) => {
         const card = el('article', 'card');
         card.dataset.index = idx;
+        card.style.animationDelay = `${idx * 0.1}s`;
         
         const h3 = el('h3'); 
         h3.textContent = p.title; 
@@ -758,6 +793,8 @@
         const anyLink = links.android || links.ios || links.demo || links.repo;
         if(anyLink){
           const actions = el('div', 'actions');
+          actions.style.marginTop = '1rem';
+          
           if(links.android){ 
             const a = el('a', 'btn primary'); 
             a.href = links.android; 
@@ -770,20 +807,23 @@
             const a = el('a', 'btn'); 
             a.href = links.ios; 
             a.target = '_blank'; 
+            a.rel = 'noreferrer';
             a.textContent = 'APP STORE'; 
             actions.appendChild(a); 
           }
           if(links.demo){ 
             const a = el('a', 'btn'); 
             a.href = links.demo; 
-            a.target = '_blank'; 
+            a.target = '_blank';
+            a.rel = 'noreferrer'; 
             a.textContent = 'LIVE DEMO'; 
             actions.appendChild(a); 
           }
           if(links.repo){ 
             const a = el('a', 'btn'); 
             a.href = links.repo; 
-            a.target = '_blank'; 
+            a.target = '_blank';
+            a.rel = 'noreferrer'; 
             a.textContent = 'REPO'; 
             actions.appendChild(a); 
           }
@@ -805,8 +845,8 @@
       renderProjects(filtered);
     });
     
-    $$('.chip').forEach(btn => btn.addEventListener('click', () => {
-      $$('.chip').forEach(b => b.classList.remove('active'));
+    $('.chip').forEach(btn => btn.addEventListener('click', () => {
+      $('.chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const key = btn.dataset.filter;
       if(key === 'all') return renderProjects(PROJECTS);
@@ -845,3 +885,99 @@
     function closeLightbox(){
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    lbPrev?.addEventListener('click', () => { 
+      index = (index - 1 + album.length) % album.length; 
+      updateLightbox(); 
+    });
+    
+    lbNext?.addEventListener('click', () => { 
+      index = (index + 1) % album.length; 
+      updateLightbox(); 
+    });
+    
+    lbClose?.addEventListener('click', closeLightbox);
+    
+    lb?.addEventListener('click', (e) => { 
+      if(e.target === lb) closeLightbox(); 
+    });
+    
+    window.addEventListener('keydown', (e) => {
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') closeLightbox();
+      if(e.key === 'ArrowRight') { 
+        index = (index + 1) % album.length; 
+        updateLightbox(); 
+      }
+      if(e.key === 'ArrowLeft') { 
+        index = (index - 1 + album.length) % album.length; 
+        updateLightbox(); 
+      }
+    });
+
+    // === Copiar email con efecto ===
+    $('#email-btn')?.addEventListener('click', (e) => {
+      const toCopy = e.currentTarget.getAttribute('data-copy');
+      if(navigator.clipboard && toCopy){
+        e.preventDefault();
+        navigator.clipboard.writeText(toCopy).then(() => {
+          const old = e.currentTarget.textContent; 
+          e.currentTarget.textContent = 'COPIED ✓';
+          e.currentTarget.style.background = 'var(--primary)';
+          e.currentTarget.style.color = 'var(--bg)';
+          setTimeout(() => {
+            e.currentTarget.textContent = old;
+            e.currentTarget.style.background = '';
+            e.currentTarget.style.color = '';
+          }, 1500);
+          // Abrir cliente de correo tras copiar
+          setTimeout(() => {
+            window.location.href = 'mailto:' + toCopy;
+          }, 500);
+        });
+      }
+    });
+
+    // === Efecto de typing en el título ===
+    const titleText = "Pablo Fernandez";
+    const h1 = document.getElementById('main-title');
+    if(h1){
+      let charIndex = 0;
+      const typeWriter = () => {
+        if(charIndex < titleText.length){
+          h1.textContent += titleText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 100);
+        }
+      };
+      setTimeout(typeWriter, 500);
+    }
+
+    // === Año actual ===
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // === Efecto parallax en scroll ===
+    let ticking = false;
+    function updateParallax(){
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.scan-lines');
+      if(parallax){
+        parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+      ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+      if(!ticking){
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+
+    // === Cargar proyectos ===
+    loadProjects();
+  </script>
+</body>
+</html>

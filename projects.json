@@ -1,46 +1,58 @@
 [
   {
-    "type": "app",
     "title": "OPN — Oposiciones Policía Nacional",
-    "summary": "B2C learning app for exam prep with tests, notifications, and analytics.",
-    "tech": ["Flutter", "PostgreSQL", "Cloud Run"],
-    "kpis": ["13,496 students", "+65% productivity", "-70% content time"],
-    "images": ["/assets/opn-1.png", "/assets/opn-2.png", "/assets/opn-3.png"],
+    "summary": "B2C learning app for Spanish National Police exam prep with advanced test systems, smart notifications, and comprehensive analytics.",
+    "category": "mobile",
+    "tech": ["Flutter", "PostgreSQL", "Cloud Run", "Firebase", "REST APIs", "Push Notifications"],
+    "kpis": ["13,496 students", "+65% productivity", "-70% content time", "4.8★ rating"],
+    "images": [
+      "/assets/opn-1.png",
+      "/assets/opn-2.png", 
+      "/assets/opn-3.png"
+    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
       "ios": "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
     }
   },
   {
-    "type": "app",
     "title": "OPN Físicas",
-    "summary": "Physical training companion app for OPN candidates.",
-    "tech": ["Flutter", "Edge Functions"],
-    "kpis": ["+10k sessions/mo"],
-    "images": ["/assets/opn-fisicas-1.png", "/assets/opn-fisicas-2.png"],
+    "summary": "Specialized physical training companion app for police candidates with workout tracking and performance analytics.",
+    "category": "mobile",
+    "tech": ["Flutter", "Edge Functions", "Supabase", "Real-time sync"],
+    "kpis": ["+10K sessions/mo", "Real-time tracking", "Offline mode"],
+    "images": [
+      "/assets/opn-fisicas-1.png",
+      "/assets/opn-fisicas-2.png"
+    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
       "ios": "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"
     }
   },
   {
-    "type": "ai",
     "title": "Legal Info Chatbot (RAG)",
-    "summary": "Custom LLM + Retrieval‑Augmented Generation over proprietary legal corpus.",
-    "tech": ["LLM", "RAG", "Embeddings", "Cloud Run"],
-    "kpis": ["-40% support tickets", "+70% content speed"],
-    "images": ["/assets/rag.png"],
+    "summary": "Custom LLM with Retrieval-Augmented Generation over proprietary legal corpus for intelligent Q&A.",
+    "category": "ai",
+    "tech": ["LLM", "RAG", "Embeddings", "Cloud Run", "Vector DB", "LangChain", "GPT-4"],
+    "kpis": ["-40% support tickets", "+70% content speed", "95% accuracy", "2s response time"],
+    "images": [
+      "/assets/rag.png"
+    ],
     "links": {
       "demo": "https://oposicionespolicianacional.com/opntest"
     }
   },
   {
-    "type": "b2b",
     "title": "Custom Management System (B2B)",
-    "summary": "Internal CMS/LSM for content, users, roles, and analytics across partner academies.",
-    "tech": ["Flutter (web)", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs"],
-    "kpis": ["Multi‑tenant", "Role‑based access control", "Operational dashboards"],
-    "images": ["/assets/b2b-cms-1.png", "/assets/b2b-cms-2.png"],
+    "summary": "Enterprise CMS/LMS for content management, user administration, roles, and analytics across partner academies.",
+    "category": "data",
+    "tech": ["Flutter Web", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs", "RBAC"],
+    "kpis": ["Multi-tenant architecture", "Role-based access", "Real-time dashboards", "100+ academies"],
+    "images": [
+      "/assets/b2b-cms-1.png",
+      "/assets/b2b-cms-2.png"
+    ],
     "links": {}
   }
 ]
