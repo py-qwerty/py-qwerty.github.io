@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="CTO & Data Scientist specializing in B2C software, AI, and Flutter apps." />
+  <meta property="og:title" content="Your Name — Portfolio" />
+  <meta property="og:description" content="CTO & Data Scientist specializing in B2C software, AI, and Flutter apps." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#111317; --muted:#9aa3b2; --text:#e5e7eb; --brand:#7c5cff; --brand-2:#22d3ee;
+      --ring: 0 0 0 3px rgba(124,92,255,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --card:#f7f7f9; --text:#0f172a; --muted:#475569; }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1024px;margin:0 auto;padding:24px}
+    header{display:grid;gap:16px;align-items:center;margin-top:24px;margin-bottom:24px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white;font-weight:600;font-size:12px;width:max-content}
+    h1{font-size:36px;line-height:1.15;margin:8px 0}
+    .subtitle{color:var(--muted)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:12px;font-weight:700;border:1px solid #2b2f36;background:var(--card)}
+    .btn:hover{box-shadow:var(--ring)}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));border:none;color:white}
+
+    /* Sections */
+    section{margin:40px 0}
+    .section-title{font-size:20px;margin-bottom:16px}
+
+    /* Project grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;padding:16px;border:1px solid #23262d;background:var(--card);border-radius:16px}
+    @media (min-width:700px){ .card{grid-column:span 6} }
+    @media (min-width:1000px){ .card{grid-column:span 4} }
+    .card h3{margin:2px 0 6px 0;font-size:18px}
+    .card p{margin:6px 0;color:var(--muted)}
+    .tag{display:inline-block;padding:4px 8px;border:1px solid #2b2f36;border-radius:999px;font-size:12px;margin:4px 6px 0 0}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .kpi{padding:6px 10px;border-radius:10px;background:#151821;border:1px solid #2b2f36;font-weight:700}
+
+    /* Footer */
+    footer{margin-top:48px;padding:24px 0;border-top:1px dashed #2b2f36;color:var(--muted);font-size:14px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">B2C • AI • Flutter • Data</span>
+      <h1>Your Name</h1>
+      <div class="subtitle">CTO & Data Scientist. Specialized in B2C software, AI/ML, and scalable cloud architectures.</div>
+      <div class="actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="mailto:you@email.com">Email</a>
+        <a class="btn" href="./Your_CV.pdf" download>Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p>
+        Mathematician & statistician turned CTO. I design and ship B2C products end‑to‑end: Flutter + PostgreSQL on the front/back, Cloud Run/Edge Functions in the cloud, and LLM/RAG systems for content & search. I care about shipped value, measurable impact, and clean engineering.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid" id="project-grid"><!-- cards injected by JS --></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        Open to collaborations and roles focused on AI, B2C apps, and data‑driven growth.
+        <span class="mono">you@email.com</span>
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name. Built for GitHub Pages. No cookies, no trackers.
+    </footer>
+  </div>
+
+  <script>
+    // ---- Config: edit your data here ----
+    const PROJECTS = [
+      {
+        title: "Legal Info Chatbot (RAG)",
+        summary: "Custom LLM + Retrieval‑Augmented Generation for instant answers to law‑related queries.",
+        tech: ["LLM", "RAG", "Embeddings", "Cloud Run"],
+        kpis: ["-40% support tickets", "+70% content speed"],
+        link: "#",
+        image: "",
+      },
+      {
+        title: "Customer Performance Dashboard",
+        summary: "Real‑time KPIs & AARRR metrics for growth and retention decisions.",
+        tech: ["PostgreSQL", "TypeScript", "APIs"],
+        kpis: ["+15% retention", "+65% productivity"],
+        link: "#",
+        image: "",
+      },
+      {
+        title: "Content Automation Tool",
+        summary: "LLM‑powered content generator for app modules based on law corpora.",
+        tech: ["Flutter", "Python", "Make (Integromat)", "Edge Functions"],
+        kpis: ["-70% time to produce content"],
+        link: "#",
+        image: "",
+      },
+    ];
+
+    // ---- Render ----
+    const grid = document.getElementById('project-grid');
+    function el(tag, cls){ const e=document.createElement(tag); if(cls) e.className=cls; return e; }
+    PROJECTS.forEach(p=>{
+      const card = el('article','card');
+      const h3 = el('h3'); h3.textContent = p.title; card.appendChild(h3);
+      const desc = el('p'); desc.textContent = p.summary; card.appendChild(desc);
+      if(p.tech?.length){
+        const wrap = el('div');
+        p.tech.forEach(t=>{ const tag=el('span','tag'); tag.textContent=t; wrap.appendChild(tag); });
+        card.appendChild(wrap);
+      }
+      if(p.kpis?.length){
+        const kpis = el('div','kpis');
+        p.kpis.forEach(k=>{ const b=el('span','kpi'); b.textContent=k; kpis.appendChild(b); });
+        card.appendChild(kpis);
+      }
+      const actions = el('div','actions');
+      const view = el('a','btn'); view.href=p.link||'#'; view.target='_blank'; view.rel='noreferrer'; view.textContent='View'; actions.appendChild(view);
+      card.appendChild(actions);
+      grid.appendChild(card);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
