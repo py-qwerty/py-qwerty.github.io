@@ -29,7 +29,7 @@
     "summary": "Custom LLM + Retrieval‑Augmented Generation over proprietary legal corpus.",
     "tech": ["LLM", "RAG", "Embeddings", "Cloud Run"],
     "kpis": ["-40% support tickets", "+70% content speed"],
-    "images": ["/assets/rag-1.png"],
+    "images": ["/assets/rag.png"],
     "links": {
       "demo": "https://your-demo-or-landing"
     }
