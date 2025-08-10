@@ -726,17 +726,17 @@
 
     // === Carga y render de proyectos ===
     async function loadProjects(){
-      try{
-        const res = await fetch('./projects.json');
-        const data = await res.json();
-        if(data && data.length > 0) {
-          PROJECTS = data;
-        }
-      }catch(e){ 
-        console.log('Using embedded projects data'); 
-      }
-      renderProjects(PROJECTS);
-    }
+  try{
+    const res = await fetch(new URL('projects.json', location.href), { cache:'no-store' });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (Array.isArray(data) && data.length) PROJECTS = data;
+  }catch(e){ 
+    console.error('No se pudo cargar projects.json:', e);
+  }
+  renderProjects(PROJECTS);
+}
+
 
     function renderProjects(items){
       const grid = document.getElementById('project-grid');
@@ -845,7 +845,8 @@
       renderProjects(filtered);
     });
     
-    $('.chip').forEach(btn => btn.addEventListener('click', () => {
+    $$('.chip').forEach(btn => btn.addEventListener('click', () => {
+
       $('.chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const key = btn.dataset.filter;
