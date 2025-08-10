@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,51 +8,587 @@
   <meta property="og:title" content="Pablo Fernandez — Portfolio" />
   <meta property="og:description" content="CTO & Data Scientist specializing in B2C software, AI, and Flutter apps." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
   <style>
-    :root{ --bg:#0b0c10; --card:#111317; --muted:#9aa3b2; --text:#e5e7eb; --brand:#7c5cff; --brand-2:#22d3ee }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1024px;margin:0 auto;padding:24px}
-    header{display:grid;gap:16px;margin:24px 0}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;font-weight:600;font-size:12px;width:max-content}
-    h1{font-size:36px;line-height:1.15;margin:8px 0}
-    .subtitle{color:var(--muted)}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .btn{padding:10px 14px;border-radius:12px;font-weight:700;border:1px solid #2b2f36;background:var(--card)}
-    .btn:hover{box-shadow:0 0 0 3px rgba(124,92,255,.25)}
-    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));border:none;color:#fff}
-
-    section{margin:40px 0}
-    .section-title{font-size:20px;margin-bottom:16px}
-
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;padding:16px;border:1px solid #23262d;background:var(--card);border-radius:16px}
-    @media (min-width:700px){ .card{grid-column:span 6} }
-    @media (min-width:1000px){ .card{grid-column:span 6} }
-    .card h3{margin:2px 0 6px 0;font-size:18px}
-    .card p{margin:6px 0;color:var(--muted)}
-    .tag{display:inline-block;padding:4px 8px;border:1px solid #2b2f36;border-radius:999px;font-size:12px;margin:4px 6px 0 0}
-    .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .kpi{padding:6px 10px;border-radius:10px;background:#151821;border:1px solid #2b2f36;font-weight:700}
-
-    /* Carousel */
-    .carousel{position:relative;overflow:auto;display:flex;gap:10px;scroll-snap-type:x mandatory;padding-bottom:6px}
-    .carousel img{height:160px;width:auto;border-radius:12px;scroll-snap-align:start;border:1px solid #23262d}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+    
+    :root{ 
+      --bg:#050505;
+      --bg-secondary:#0a0a0a;
+      --card:#0f0f0f;
+      --card-hover:#141414;
+      --border:#1a1a1a;
+      --border-light:#262626;
+      --muted:#666;
+      --text:#e0e0e0;
+      --text-bright:#ffffff;
+      --primary:#00ff88;
+      --primary-dim:#00cc6a;
+      --secondary:#00bfff;
+      --accent:#ff00ff;
+      --error:#ff0055;
+      --mx:50%;
+      --my:50%;
+    }
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    
+    html,body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',system-ui,-apple-system,sans-serif;
+      font-size:16px;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    
+    /* Grid tecnológico de fondo */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      background-image:
+        linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+      background-size:50px 50px;
+      animation:grid-move 20s linear infinite;
+    }
+    
+    @keyframes grid-move{
+      0%{transform:translate(0,0)}
+      100%{transform:translate(50px,50px)}
+    }
+    
+    /* Efecto de luz que sigue el mouse */
+    body::after{
+      content:"";
+      position:fixed;
+      width:800px;
+      height:800px;
+      left:calc(var(--mx) - 400px);
+      top:calc(var(--my) - 400px);
+      pointer-events:none;
+      z-index:2;
+      background:radial-gradient(circle, rgba(0,255,136,0.15) 0%, rgba(0,191,255,0.1) 30%, transparent 70%);
+      filter:blur(60px);
+      mix-blend-mode:screen;
+    }
+    
+    /* Líneas de escaneo */
+    .scan-lines{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:3;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,255,136,0.03) 2px,
+          rgba(0,255,136,0.03) 4px
+        );
+      animation:scan 8s linear infinite;
+    }
+    
+    @keyframes scan{
+      0%{transform:translateY(0)}
+      100%{transform:translateY(10px)}
+    }
+    
+    /* Partículas flotantes */
+    .particles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+    
+    .particle{
+      position:absolute;
+      width:2px;
+      height:2px;
+      background:var(--primary);
+      box-shadow:0 0 10px var(--primary);
+      animation:float 20s infinite linear;
+    }
+    
+    @keyframes float{
+      0%{transform:translateY(100vh) translateX(0)}
+      100%{transform:translateY(-100vh) translateX(100px)}
+    }
+    
+    /* Container y layout */
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:2rem;
+      position:relative;
+      z-index:10;
+    }
+    
+    /* Header mejorado */
+    header{
+      padding:4rem 0;
+      position:relative;
+      border-bottom:1px solid var(--border);
+      margin-bottom:4rem;
+    }
+    
+    header::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-2rem;
+      right:-2rem;
+      height:100%;
+      background:linear-gradient(135deg, rgba(0,255,136,0.05) 0%, transparent 50%);
+      z-index:-1;
+    }
+    
+    .badge{
+      display:inline-flex;
+      gap:0.5rem;
+      align-items:center;
+      padding:0.5rem 1rem;
+      background:var(--primary);
+      color:var(--bg);
+      font-weight:700;
+      font-size:0.75rem;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+      clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      margin-bottom:1.5rem;
+    }
+    
+    h1{
+      font-size:clamp(2.5rem, 5vw, 4rem);
+      font-weight:900;
+      line-height:1.1;
+      margin-bottom:1rem;
+      background:linear-gradient(135deg, var(--text-bright) 0%, var(--primary) 50%, var(--secondary) 100%);
+      background-clip:text;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradient-shift 3s ease infinite;
+    }
+    
+    @keyframes gradient-shift{
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+    }
+    
+    .subtitle{
+      color:var(--muted);
+      font-size:1.125rem;
+      margin-bottom:2rem;
+      max-width:600px;
+    }
+    
+    /* Botones tecnológicos */
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+    }
+    
+    .btn{
+      position:relative;
+      padding:0.75rem 1.5rem;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      font-size:0.875rem;
+      border:1px solid var(--border-light);
+      background:var(--card);
+      color:var(--text);
+      cursor:pointer;
+      transition:all 0.3s ease;
+      overflow:hidden;
+    }
+    
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(90deg, transparent, rgba(0,255,136,0.2), transparent);
+      transition:left 0.5s ease;
+    }
+    
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(0,255,136,0.2);
+      border-color:var(--primary-dim);
+    }
+    
+    .btn:hover::before{
+      left:100%;
+    }
+    
+    .btn.primary{
+      background:linear-gradient(135deg, var(--primary-dim), var(--primary));
+      border:none;
+      color:var(--bg);
+      box-shadow:0 0 20px rgba(0,255,136,0.3);
+    }
+    
+    .btn.primary:hover{
+      box-shadow:0 0 30px rgba(0,255,136,0.5);
+    }
+    
+    /* Secciones */
+    section{
+      margin:4rem 0;
+      position:relative;
+    }
+    
+    .section-title{
+      font-size:2rem;
+      font-weight:700;
+      margin-bottom:2rem;
+      position:relative;
+      padding-left:1rem;
+    }
+    
+    .section-title::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:50%;
+      transform:translateY(-50%);
+      width:4px;
+      height:100%;
+      background:var(--primary);
+      box-shadow:0 0 10px var(--primary);
+    }
+    
+    /* Toolbar mejorado */
+    .toolbar{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+      align-items:center;
+      margin:2rem 0;
+      padding:1rem;
+      background:var(--card);
+      border:1px solid var(--border);
+    }
+    
+    .search{
+      flex:1;
+      min-width:250px;
+      padding:0.75rem 1rem;
+      border:1px solid var(--border-light);
+      background:var(--bg);
+      color:var(--text);
+      font-family:inherit;
+      transition:all 0.3s ease;
+    }
+    
+    .search:focus{
+      outline:none;
+      border-color:var(--primary);
+      box-shadow:0 0 0 2px rgba(0,255,136,0.1);
+    }
+    
+    .chip{
+      padding:0.5rem 1rem;
+      border:1px solid var(--border-light);
+      background:var(--bg);
+      color:var(--muted);
+      font-size:0.875rem;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      font-weight:600;
+    }
+    
+    .chip:hover{
+      border-color:var(--primary-dim);
+      color:var(--primary);
+    }
+    
+    .chip.active{
+      background:var(--primary);
+      color:var(--bg);
+      border-color:var(--primary);
+      box-shadow:0 0 20px rgba(0,255,136,0.3);
+    }
+    
+    /* Grid de proyectos */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+      gap:2rem;
+    }
+    
+    /* Cards tecnológicas */
+    .card{
+      position:relative;
+      padding:1.5rem;
+      background:var(--card);
+      border:1px solid var(--border);
+      transition:all 0.3s ease;
+      overflow:hidden;
+    }
+    
+    .card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:2px;
+      background:linear-gradient(90deg, transparent, var(--primary), transparent);
+      transform:translateX(-100%);
+      animation:scan-card 3s linear infinite;
+    }
+    
+    @keyframes scan-card{
+      0%{transform:translateX(-100%)}
+      100%{transform:translateX(100%)}
+    }
+    
+    .card:hover{
+      transform:translateY(-5px);
+      background:var(--card-hover);
+      border-color:var(--primary-dim);
+      box-shadow:0 10px 40px rgba(0,255,136,0.1);
+    }
+    
+    .card h3{
+      font-size:1.25rem;
+      font-weight:700;
+      margin-bottom:0.75rem;
+      color:var(--text-bright);
+    }
+    
+    .card p{
+      color:var(--muted);
+      margin-bottom:1rem;
+      line-height:1.5;
+    }
+    
+    /* Tags mejorados */
+    .tag{
+      display:inline-block;
+      padding:0.25rem 0.75rem;
+      border:1px solid var(--border-light);
+      background:var(--bg);
+      color:var(--primary);
+      font-size:0.75rem;
+      margin:0.25rem;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      font-weight:600;
+      transition:all 0.3s ease;
+    }
+    
+    .tag:hover{
+      background:var(--primary);
+      color:var(--bg);
+    }
+    
+    /* KPIs */
+    .kpis{
+      display:flex;
+      gap:0.75rem;
+      flex-wrap:wrap;
+      margin-top:1rem;
+    }
+    
+    .kpi{
+      padding:0.5rem 1rem;
+      background:linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,191,255,0.1));
+      border:1px solid var(--border-light);
+      font-weight:700;
+      font-size:0.875rem;
+      color:var(--primary);
+    }
+    
+    /* Carrusel mejorado */
+    .carousel{
+      position:relative;
+      overflow:auto;
+      display:flex;
+      gap:0.75rem;
+      scroll-snap-type:x mandatory;
+      padding:0.5rem 0;
+      margin:1rem 0;
+    }
+    
+    .carousel::-webkit-scrollbar{
+      height:4px;
+    }
+    
+    .carousel::-webkit-scrollbar-track{
+      background:var(--border);
+    }
+    
+    .carousel::-webkit-scrollbar-thumb{
+      background:var(--primary);
+    }
+    
+    .carousel img{
+      height:180px;
+      width:auto;
+      border:1px solid var(--border);
+      scroll-snap-align:start;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      filter:brightness(0.8);
+    }
+    
+    .carousel img:hover{
+      filter:brightness(1);
+      transform:scale(1.05);
+      border-color:var(--primary);
+      box-shadow:0 0 20px rgba(0,255,136,0.3);
+    }
+    
+    /* Lightbox mejorado */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.95);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+    
+    .lightbox.open{
+      display:flex;
+    }
+    
+    .lb-img{
+      max-width:90vw;
+      max-height:85vh;
+      border:2px solid var(--primary);
+      box-shadow:0 0 50px rgba(0,255,136,0.5);
+    }
+    
+    .lb-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:1.5rem;
+      padding:1rem;
+      background:var(--card);
+      border:1px solid var(--border-light);
+      color:var(--primary);
+      cursor:pointer;
+      transition:all 0.3s ease;
+    }
+    
+    .lb-btn:hover{
+      background:var(--primary);
+      color:var(--bg);
+    }
+    
+    .lb-prev{left:2rem}
+    .lb-next{right:2rem}
+    
+    .lb-close{
+      position:absolute;
+      top:2rem;
+      right:2rem;
+      font-size:1.5rem;
+      padding:0.75rem 1rem;
+      background:var(--error);
+      border:none;
+      color:white;
+      cursor:pointer;
+      transition:all 0.3s ease;
+    }
+    
+    .lb-close:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 20px rgba(255,0,85,0.5);
+    }
+    
+    .lb-counter{
+      position:absolute;
+      bottom:2rem;
+      left:50%;
+      transform:translateX(-50%);
+      padding:0.5rem 1rem;
+      background:var(--card);
+      border:1px solid var(--primary);
+      color:var(--primary);
+      font-weight:600;
+      font-size:0.875rem;
+    }
+    
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:3rem 0;
+      margin-top:6rem;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      position:relative;
+    }
+    
+    footer::before{
+      content:"⚡";
+      position:absolute;
+      top:-1.5rem;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--bg);
+      padding:0 1rem;
+      font-size:2rem;
+    }
+    
+    /* Responsive */
+    @media (max-width:768px){
+      .container{padding:1rem}
+      h1{font-size:2rem}
+      .grid{grid-template-columns:1fr;gap:1rem}
+      .lb-prev,.lb-next{display:none}
+    }
+    
+    /* Animación de entrada */
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    
+    .card{
+      animation:fadeIn 0.5s ease forwards;
+      opacity:0;
+    }
+    
+    .card:nth-child(1){animation-delay:0.1s}
+    .card:nth-child(2){animation-delay:0.2s}
+    .card:nth-child(3){animation-delay:0.3s}
+    .card:nth-child(4){animation-delay:0.4s}
+    .card:nth-child(5){animation-delay:0.5s}
+    .card:nth-child(6){animation-delay:0.6s}
   </style>
 </head>
 <body>
+  <div class="scan-lines"></div>
+  <div class="particles" id="particles"></div>
+  
   <div class="container">
     <header>
-      <span class="badge">B2C • AI • Flutter • Data</span>
+      <span class="badge">B2C • AI • FLUTTER • DATA</span>
       <h1>Pablo Fernandez</h1>
       <div class="subtitle">CTO & Data Scientist. Specialized in B2C software, AI/ML, and scalable cloud architectures.</div>
       <div class="actions">
-        <a class="btn primary" href="#projects">View Projects</a>
-        <a class="btn" href="mailto:pablo@email.com">Email</a>
-        <a class="btn" href="./Pablo_Fernandez_CV.pdf" download>Download CV</a>
-        <a class="btn" href="https://www.linkedin.com/in/pablo-fernandez" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn primary" href="#projects">VIEW PROJECTS</a>
+        <a class="btn" id="email-btn" href="mailto:pablo@email.com" data-copy="pablo@email.com">EMAIL</a>
+        <a class="btn" href="./Pablo_Fernandez_CV.pdf" download>DOWNLOAD CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/pablo-fernandez" target="_blank" rel="noreferrer">LINKEDIN</a>
       </div>
     </header>
 
@@ -65,6 +601,13 @@
 
     <section id="projects">
       <h2 class="section-title">Selected Projects</h2>
+      <div class="toolbar">
+        <input id="search" class="search" placeholder="Search by title or technology..." autocomplete="off" />
+        <button class="chip active" data-filter="all">ALL</button>
+        <button class="chip" data-filter="mobile">MOBILE</button>
+        <button class="chip" data-filter="ai">AI/ML</button>
+        <button class="chip" data-filter="data">DATA</button>
+      </div>
       <div class="grid" id="project-grid"></div>
     </section>
 
@@ -72,61 +615,178 @@
       <h2 class="section-title">Contact</h2>
       <p>
         Open to collaborations and roles focused on AI, B2C apps, and data‑driven growth.
-        <span class="mono">pablo@email.com</span>
+        <br><strong style="color:var(--primary);font-family:monospace;">pablo@email.com</strong>
       </p>
     </section>
 
     <footer>
-      © <span id="year"></span> Pablo Fernandez. Built for GitHub Pages.
+      © <span id="year"></span> Pablo Fernandez. Built for the future.
     </footer>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <img class="lb-img" id="lb-img" alt="" />
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous">◀</button>
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Next">▶</button>
+    <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+    <div class="lb-counter" id="lb-counter">1/1</div>
+  </div>
+
   <script>
-    // Load external data file and render
+    // === Fondo dinámico que sigue el ratón ===
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth) * 100 + '%';
+      const y = (e.clientY / window.innerHeight) * 100 + '%';
+      document.documentElement.style.setProperty('--mx', x);
+      document.documentElement.style.setProperty('--my', y);
+    });
+
+    // === Crear partículas flotantes ===
+    const particlesContainer = document.getElementById('particles');
+    for(let i = 0; i < 20; i++){
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 20 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // === Utilidades ===
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+    function el(tag, cls){ 
+      const e = document.createElement(tag); 
+      if(cls) e.className = cls; 
+      return e; 
+    }
+
+    // === Datos de proyectos de ejemplo ===
+    let PROJECTS = [
+      {
+        title: "AI Content Generator",
+        summary: "Advanced LLM-based system for automated content creation with RAG implementation.",
+        category: "ai",
+        tech: ["Python", "GPT-4", "LangChain", "PostgreSQL", "FastAPI"],
+        kpis: ["10K+ generations/day", "95% accuracy", "2s avg response"],
+        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=AI+System"],
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "Flutter Marketplace App",
+        summary: "B2C mobile application with real-time features and payment integration.",
+        category: "mobile",
+        tech: ["Flutter", "Dart", "Firebase", "Stripe", "Cloud Run"],
+        kpis: ["13K+ users", "4.8★ rating", "$2M GMV"],
+        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=Mobile+App"],
+        links: { android: "#", ios: "#" }
+      },
+      {
+        title: "Data Analytics Platform",
+        summary: "Real-time analytics dashboard with ML-powered insights and predictions.",
+        category: "data",
+        tech: ["React", "D3.js", "Python", "TensorFlow", "BigQuery"],
+        kpis: ["500GB processed/day", "Real-time", "99.9% uptime"],
+        images: ["https://via.placeholder.com/400x300/0f0f0f/00ff88?text=Analytics"],
+        links: { demo: "#" }
+      }
+    ];
+
+    // === Carga y render de proyectos ===
     async function loadProjects(){
       try{
         const res = await fetch('./projects.json');
-        const data = await res.json();
-        renderProjects(data);
-      }catch(e){ console.error('Failed to load projects.json', e); }
+        PROJECTS = await res.json();
+      }catch(e){ 
+        console.log('Using example projects'); 
+      }
+      renderProjects(PROJECTS);
     }
-
-    function el(tag, cls){ const e=document.createElement(tag); if(cls) e.className=cls; return e; }
 
     function renderProjects(items){
       const grid = document.getElementById('project-grid');
       grid.innerHTML = '';
-      items.forEach(p=>{
-        const card = el('article','card');
-
-        const h3 = el('h3'); h3.textContent = p.title; card.appendChild(h3);
-        const desc = el('p'); desc.textContent = p.summary || ''; card.appendChild(desc);
+      
+      items.forEach((p, idx) => {
+        const card = el('article', 'card');
+        card.dataset.index = idx;
+        
+        const h3 = el('h3'); 
+        h3.textContent = p.title; 
+        card.appendChild(h3);
+        
+        const desc = el('p'); 
+        desc.textContent = p.summary || ''; 
+        card.appendChild(desc);
 
         if(Array.isArray(p.images) && p.images.length){
-          const car = el('div','carousel');
-          p.images.forEach(src=>{ const img=new Image(); img.src=src; img.alt=p.title; car.appendChild(img); });
+          const car = el('div', 'carousel');
+          p.images.forEach((src, i) => { 
+            const img = new Image(); 
+            img.src = src; 
+            img.alt = p.title + ' — image ' + (i + 1);
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.addEventListener('click', () => openLightbox(p.images, i, p.title));
+            car.appendChild(img); 
+          });
           card.appendChild(car);
         }
 
         if(Array.isArray(p.tech)){
           const wrap = el('div');
-          p.tech.forEach(t=>{ const tag=el('span','tag'); tag.textContent=t; wrap.appendChild(tag); });
+          p.tech.forEach(t => { 
+            const tag = el('span', 'tag'); 
+            tag.textContent = t; 
+            wrap.appendChild(tag); 
+          });
           card.appendChild(wrap);
         }
+        
         if(Array.isArray(p.kpis)){
-          const kpis = el('div','kpis');
-          p.kpis.forEach(k=>{ const b=el('span','kpi'); b.textContent=k; kpis.appendChild(b); });
+          const kpis = el('div', 'kpis');
+          p.kpis.forEach(k => { 
+            const b = el('span', 'kpi'); 
+            b.textContent = k; 
+            kpis.appendChild(b); 
+          });
           card.appendChild(kpis);
         }
 
         const links = p.links || {};
         const anyLink = links.android || links.ios || links.demo || links.repo;
         if(anyLink){
-          const actions = el('div','actions');
-          if(links.android){ const a=el('a','btn primary'); a.href=links.android; a.target='_blank'; a.rel='noreferrer'; a.textContent='Google Play'; actions.appendChild(a); }
-          if(links.ios){ const a=el('a','btn'); a.href=links.ios; a.target='_blank'; a.rel='noreferrer'; a.textContent='App Store'; actions.appendChild(a); }
-          if(links.demo){ const a=el('a','btn'); a.href=links.demo; a.target='_blank'; a.rel='noreferrer'; a.textContent='Live Demo'; actions.appendChild(a); }
-          if(links.repo){ const a=el('a','btn'); a.href=links.repo; a.target='_blank'; a.rel='noreferrer'; a.textContent='Repo'; actions.appendChild(a); }
+          const actions = el('div', 'actions');
+          if(links.android){ 
+            const a = el('a', 'btn primary'); 
+            a.href = links.android; 
+            a.target = '_blank'; 
+            a.rel = 'noreferrer'; 
+            a.textContent = 'GOOGLE PLAY'; 
+            actions.appendChild(a); 
+          }
+          if(links.ios){ 
+            const a = el('a', 'btn'); 
+            a.href = links.ios; 
+            a.target = '_blank'; 
+            a.textContent = 'APP STORE'; 
+            actions.appendChild(a); 
+          }
+          if(links.demo){ 
+            const a = el('a', 'btn'); 
+            a.href = links.demo; 
+            a.target = '_blank'; 
+            a.textContent = 'LIVE DEMO'; 
+            actions.appendChild(a); 
+          }
+          if(links.repo){ 
+            const a = el('a', 'btn'); 
+            a.href = links.repo; 
+            a.target = '_blank'; 
+            a.textContent = 'REPO'; 
+            actions.appendChild(a); 
+          }
           card.appendChild(actions);
         }
 
@@ -134,8 +794,54 @@
       });
     }
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-    loadProjects();
-  </script>
-</body>
-</html>
+    // === Búsqueda y filtros ===
+    const searchInput = document.getElementById('search');
+    searchInput?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = PROJECTS.filter(p =>
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.tech || []).join(' ').toLowerCase().includes(q)
+      );
+      renderProjects(filtered);
+    });
+    
+    $$('.chip').forEach(btn => btn.addEventListener('click', () => {
+      $$('.chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.filter;
+      if(key === 'all') return renderProjects(PROJECTS);
+      const filtered = PROJECTS.filter(p => (p.category || '').toLowerCase().includes(key));
+      renderProjects(filtered);
+    }));
+
+    // === Lightbox ===
+    const lb = $('#lightbox');
+    const lbImg = $('#lb-img');
+    const lbPrev = $('#lb-prev');
+    const lbNext = $('#lb-next');
+    const lbClose = $('#lb-close');
+    const lbCounter = $('#lb-counter');
+    let album = []; 
+    let index = 0; 
+    let albumTitle = '';
+
+    function openLightbox(images, startIndex = 0, title = ''){
+      album = images; 
+      index = startIndex; 
+      albumTitle = title || '';
+      updateLightbox();
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function updateLightbox(){
+      if(!album.length) return;
+      lbImg.src = album[index];
+      lbImg.alt = albumTitle + ' — image ' + (index + 1);
+      lbCounter.textContent = (index + 1) + '/' + album.length;
+    }
+    
+    function closeLightbox(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
