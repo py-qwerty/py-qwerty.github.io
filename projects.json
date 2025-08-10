@@ -1,0 +1,37 @@
+[
+  {
+    "type": "app",
+    "title": "OPN — Oposiciones Policía Nacional",
+    "summary": "B2C learning app for exam prep with tests, notifications, and analytics.",
+    "tech": ["Flutter", "PostgreSQL", "Cloud Run"],
+    "kpis": ["13,496 students", "+65% productivity", "-70% content time"],
+    "images": ["/assets/opn-1.png", "/assets/opn-2.png", "/assets/opn-3.png"],
+    "links": {
+      "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
+      "ios": "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
+    }
+  },
+  {
+    "type": "app",
+    "title": "OPN Físicas",
+    "summary": "Physical training companion app for OPN candidates.",
+    "tech": ["Flutter", "Edge Functions"],
+    "kpis": ["+10k sessions/mo"],
+    "images": ["/assets/opn-fisicas-1.png", "/assets/opn-fisicas-2.png"],
+    "links": {
+      "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
+      "ios": "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"
+    }
+  },
+  {
+    "type": "ai",
+    "title": "Legal Info Chatbot (RAG)",
+    "summary": "Custom LLM + Retrieval‑Augmented Generation over proprietary legal corpus.",
+    "tech": ["LLM", "RAG", "Embeddings", "Cloud Run"],
+    "kpis": ["-40% support tickets", "+70% content speed"],
+    "images": ["/assets/rag-1.png"],
+    "links": {
+      "demo": "https://your-demo-or-landing"
+    }
+  }
+]
