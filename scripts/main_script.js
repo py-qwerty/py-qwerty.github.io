@@ -27,78 +27,21 @@ function el(tag, cls){
   return e;
 }
 
-// === Datos de proyectos con tus proyectos reales ===
-let PROJECTS = [
-  {
-    title: "OPN — Oposiciones Policía Nacional",
-    summary: "B2C learning app for Spanish National Police exam prep with advanced test systems, smart notifications, and comprehensive analytics.",
-    category: "mobile",
-    tech: ["Flutter", "PostgreSQL", "Cloud Run", "Firebase", "REST APIs", "Push Notifications"],
-    kpis: ["13,496 students", "+65% productivity", "-70% content time", "4.8★ rating"],
-    images: [
-      "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=OPN+App",
-      "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Tests+System",
-      "https://via.placeholder.com/400x300/0f0f0f/ff00ff?text=Analytics"
-    ],
-    links: {
-      android: "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
-      ios: "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
-    }
-  },
-  {
-    title: "OPN Físicas",
-    summary: "Specialized physical training companion app for police candidates with workout tracking and performance analytics.",
-    category: "mobile",
-    tech: ["Flutter", "Edge Functions", "Supabase", "Real-time sync"],
-    kpis: ["+10K sessions/mo", "Real-time tracking", "Offline mode"],
-    images: [
-      "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=OPN+Fisicas",
-      "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Training+Mode"
-    ],
-    links: {
-      android: "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
-      ios: "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"
-    }
-  },
-  {
-    title: "Legal Info Chatbot (RAG)",
-    summary: "Custom LLM with Retrieval-Augmented Generation over proprietary legal corpus for intelligent Q&A.",
-    category: "ai",
-    tech: ["LLM", "RAG", "Embeddings", "Cloud Run", "Vector DB", "LangChain", "GPT-4"],
-    kpis: ["-40% support tickets", "+70% content speed", "95% accuracy", "2s response time"],
-    images: [
-      "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=AI+Chatbot"
-    ],
-    links: {
-      demo: "https://oposicionespolicianacional.com/opntest"
-    }
-  },
-  {
-    title: "Custom Management System (B2B)",
-    summary: "Enterprise CMS/LMS for content management, user administration, roles, and analytics across partner academies.",
-    category: "data",
-    tech: ["Flutter Web", "TypeScript", "PostgreSQL", "Cloud Run", "Edge Functions", "REST APIs", "RBAC"],
-    kpis: ["Multi-tenant architecture", "Role-based access", "Real-time dashboards", "100+ academies"],
-    images: [
-      "https://via.placeholder.com/400x300/0f0f0f/00ff88?text=B2B+CMS",
-      "https://via.placeholder.com/400x300/0f0f0f/00bfff?text=Analytics+Dashboard"
-    ],
-    links: {}
-  }
-];
 
 // === Carga y render de proyectos ===
 async function loadProjects(){
-try{
-const res = await fetch(new URL('projects.json', location.href), { cache:'no-store' });
-if(!res.ok) throw new Error(`HTTP ${res.status}`);
-const data = await res.json();
-if (Array.isArray(data) && data.length) PROJECTS = data;
-}catch(e){
-console.error('No se pudo cargar projects.json:', e);
+    try {
+        const res = await fetch('./projects.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (Array.isArray(data)) PROJECTS = data;
+    } catch (e) {
+        console.error('projects.json error:', e);
+    } finally {
+        renderProjects(PROJECTS);
+    }
 }
-renderProjects(PROJECTS);
-}
+
 
 
 function renderProjects(items){
