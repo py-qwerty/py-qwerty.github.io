@@ -1,21 +1,45 @@
 [
   {
     "title": "OPN — Oposiciones Policía Nacional",
-    "summary": "B2C learning app for Spanish National Police exam prep with advanced test systems, smart notifications, and comprehensive analytics.",
+    "summary": "B2C learning app for Spanish National Police exam prep with advanced test systems, AI-powered summaries, smart notifications, and real-time analytics.",
     "category": "mobile",
-    "tech": ["Flutter", "PostgreSQL", "Cloud Run", "Firebase", "REST APIs", "Push Notifications"],
-    "kpis": ["13,496 students", "+65% productivity", "-70% content time", "4.8★ rating"],
+    "tech": [
+      "Dart · Flutter",
+      "PostgreSQL (Supabase)",
+      "Supabase Edge Functions (LLM integration)",
+      "Google Cloud Run (Python automation scripts)",
+      "Firebase · Push Notifications",
+      "SiteGround (Web hosting)",
+      "REST APIs"
+    ],
+    "kpis": [
+      "+14,000 students",
+      "+80% study productivity",
+      "-70% content creation time",
+      "4.9★ rating"
+    ],
+    "images": [
+      "assets/test1.jpg",
+      "assets/test2.jpg",
+      "assets/test3.jpg"
+    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.app",
       "ios": "https://apps.apple.com/es/app/opn-test-polic%C3%ADa-nacional/id6444474785"
     }
   },
+
   {
     "title": "OPN Físicas",
     "summary": "Specialized physical training companion app for police candidates with workout tracking and performance analytics.",
     "category": "mobile",
-    "tech": ["Flutter", "Edge Functions", "Supabase", "Real-time sync"],
-    "kpis": ["+10K sessions/mo", "Real-time tracking", "Offline mode"],
+    "tech": ["Flutter",  "PostgreSQL","Edge Functions", "Supabase", "Real-time sync"],
+    "kpis": ["100 sessions/mo", "Real-time tracking"],
+    "images": [
+      "assets/fisicas1.jpg",
+      "assets/fisicas2.jpg",
+      "assets/fisicas3.jpg"
+    ],
     "links": {
       "android": "https://play.google.com/store/apps/details?id=com.oposicionespolicianacional.opnfisicas",
       "ios": "https://apps.apple.com/us/app/opn-f%C3%ADsicas-polic%C3%ADa-nacional/id6502256965"

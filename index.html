@@ -3,75 +3,64 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pablo Fernandez — Portfolio</title>
-    <meta name="description" content="CTO & Data Scientist specializing in B2C software, AI, and Flutter apps." />
-    <meta property="og:title" content="Pablo Fernandez — Portfolio" />
-    <meta property="og:description" content="CTO & Data Scientist specializing in B2C software, AI, and Flutter apps." />
+    <title id="page-title"></title>
+    <meta name="description" content="" id="meta-description" />
+    <meta property="og:title" content="" id="og-title" />
+    <meta property="og:description" content="" id="og-description" />
     <meta property="og:type" content="website" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/main_script.js"></script>
 </head>
 
 <body>
-  <div class="scan-lines"></div>
-  <div class="particles" id="particles"></div>
-  <div class="container">
+<div class="scan-lines"></div>
+<div class="particles" id="particles"></div>
+<div class="container">
     <header>
-      <span class="badge" aria-label="Skills: AI/ML, UI/UX, Data, Math, Python, and R">
-  AI/ML · UI/UX · Data · Math · Python · R
-</span>
-      <h1 id="main-title"></h1>
-      <div class="subtitle">CTO ISYFU & Data Scientist. Specialized in B2C software, AI/ML, and scalable cloud architectures.</div>
-      <div class="actions">
-        <a class="btn primary" href="#projects">VIEW PROJECTS</a>
-        <a class="btn" id="email-btn" href="mailto:pablo@email.com" data-copy="pablo@email.com">EMAIL</a>
-        <a class="btn" href="./Pablo_Fernandez_CV.pdf" download>DOWNLOAD CV</a>
-        <a class="btn" href="https://www.linkedin.com/in/pablo-fernandez" target="_blank" rel="noreferrer">LINKEDIN</a>
-      </div>
+        <span class="badge" id="header-badge"></span>
+        <h1 id="main-title"></h1>
+        <div class="subtitle" id="header-subtitle"></div>
+        <div class="actions" id="header-actions">
+            <!-- Botones se insertarán dinámicamente -->
+        </div>
     </header>
 
     <section id="about">
-      <h2 class="section-title">About</h2>
-      <p>
-        Mathematician & statistician turned CTO with experience leading end‑to‑end tech development for startups with 13K+ customers. Expert in Flutter + PostgreSQL, Cloud Run/Edge Functions, and LLM/RAG systems for content, classification, and search. Passionate about measurable impact, AARRR metrics, and clean engineering.
-      </p>
+        <h2 class="section-title" id="about-title"></h2>
+        <p id="about-content"></p>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="toolbar">
-        <input id="search" class="search" placeholder="Search by title or technology..." autocomplete="off" />
-        <button class="chip active" data-filter="all">ALL</button>
-        <button class="chip" data-filter="mobile">MOBILE</button>
-        <button class="chip" data-filter="ai">AI/ML</button>
-        <button class="chip" data-filter="data">DATA</button>
-      </div>
-      <div class="grid" id="project-grid"></div>
+        <h2 class="section-title" id="projects-title"></h2>
+        <div class="toolbar">
+            <input id="search" class="search" autocomplete="off" />
+            <div id="filter-buttons">
+                <!-- Filtros se insertarán dinámicamente -->
+            </div>
+        </div>
+        <div class="grid" id="project-grid"></div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>
-        Open to collaborations and roles focused on AI, B2C apps, and data‑driven growth.
-        <br><strong style="color:var(--primary);font-family:monospace;">pablo@email.com</strong>
-      </p>
+        <h2 class="section-title" id="contact-title"></h2>
+        <p id="contact-content"></p>
     </section>
 
-    <footer>
-      © <span id="year"></span> Pablo Fernandez. Built for the future.
-    </footer>
-  </div>
+    <footer id="footer-content"></footer>
+</div>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
     <img class="lb-img" id="lb-img" alt="" />
-    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous">◀</button>
-    <button class="lb-btn lb-next" id="lb-next" aria-label="Next">▶</button>
-    <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
-    <div class="lb-counter" id="lb-counter">1/1</div>
-  </div>
+    <button class="lb-btn lb-prev" id="lb-prev">◀</button>
+    <button class="lb-btn lb-next" id="lb-next">▶</button>
+    <button class="lb-close" id="lb-close">✕</button>
+    <div class="lb-counter" id="lb-counter"></div>
+</div>
 
-
+<!-- Scripts -->
+<script src="content/content.js"></script>
+<script src="scripts/render.js"></script>
+<script src="scripts/main_script.js"></script>
 </body>
 </html>
